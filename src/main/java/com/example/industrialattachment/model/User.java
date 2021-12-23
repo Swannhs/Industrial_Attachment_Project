@@ -2,10 +2,9 @@ package com.example.industrialattachment.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 
 @Data
 @Entity
@@ -14,9 +13,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
+    @NotNull(message = "Username is required")
     private String username;
 
+    @NotNull(message = "Password is required")
     private String password;
 
+    @Email(message = "Please enter a valid email")
+    @Column(unique = true)
     private String email;
 }

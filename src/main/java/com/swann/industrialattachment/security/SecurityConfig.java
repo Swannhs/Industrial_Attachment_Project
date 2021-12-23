@@ -1,4 +1,4 @@
-package com.example.industrialattachment.security;
+package com.swann.industrialattachment.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

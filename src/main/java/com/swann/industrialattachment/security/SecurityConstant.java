@@ -1,4 +1,4 @@
-package com.example.industrialattachment.security;
+package com.swann.industrialattachment.security;
 
 public class SecurityConstant {
     public static final String SECRET = "SECRETKEYTOKEN";

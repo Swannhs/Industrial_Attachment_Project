@@ -1,4 +1,4 @@
-package com.example.industrialattachment.exception;
+package com.swann.industrialattachment.exception;
 
 import lombok.Data;
 

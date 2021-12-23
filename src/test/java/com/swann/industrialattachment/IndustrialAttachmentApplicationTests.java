@@ -1,4 +1,4 @@
-package com.example.industrialattachment;
+package com.swann.industrialattachment;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

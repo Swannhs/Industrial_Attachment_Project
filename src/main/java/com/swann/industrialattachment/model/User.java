@@ -1,4 +1,4 @@
-package com.example.industrialattachment.model;
+package com.swann.industrialattachment.model;
 
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package com.example.industrialattachment;
+package com.swann.industrialattachment;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

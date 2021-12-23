@@ -1,6 +1,6 @@
-package com.example.industrialattachment.security;
+package com.swann.industrialattachment.security;
 
-import com.example.industrialattachment.exception.InvalidLoginResponse;
+import com.swann.industrialattachment.exception.InvalidLoginResponse;
 import com.google.gson.Gson;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;

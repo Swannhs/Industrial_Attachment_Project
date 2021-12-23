@@ -1,4 +1,4 @@
-package com.example.industrialattachment.security;
+package com.swann.industrialattachment.security;
 
 import io.jsonwebtoken.*;
 import org.springframework.security.core.Authentication;
@@ -9,16 +9,13 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.example.industrialattachment.security.SecurityConstant.EXPIRATION_TIME;
-import static com.example.industrialattachment.security.SecurityConstant.SECRET;
-
 @Component
 public class JwtTokenProvider {
     public String generateToken(Authentication authentication) {
         User user = (User) authentication.getPrincipal();
         Date now = new Date(System.currentTimeMillis());
 
-        Date expiryDate = new Date(now.getTime() + EXPIRATION_TIME);
+        Date expiryDate = new Date(now.getTime() + SecurityConstant.EXPIRATION_TIME);
 
         Map<String, Object> claims = new HashMap<>();
         claims.put("username", user.getUsername());
@@ -28,13 +25,13 @@ public class JwtTokenProvider {
                 .setClaims(claims)
                 .setIssuedAt(now)
                 .setExpiration(expiryDate)
-                .signWith(SignatureAlgorithm.HS512, SECRET)
+                .signWith(SignatureAlgorithm.HS512, SecurityConstant.SECRET)
                 .compact();
     }
 
     public boolean validateToken(String token) {
         try {
-            Jwts.parser().setSigningKey(SECRET).parseClaimsJws(token);
+            Jwts.parser().setSigningKey(SecurityConstant.SECRET).parseClaimsJws(token);
             return true;
         } catch (SignatureException ex) {
             System.out.println("Invalid JWT Signature");
@@ -51,7 +48,7 @@ public class JwtTokenProvider {
     }
 
     public String getUsernameByToken(String token) {
-        Claims claims = Jwts.parser().setSigningKey(SECRET).parseClaimsJws(token).getBody();
+        Claims claims = Jwts.parser().setSigningKey(SecurityConstant.SECRET).parseClaimsJws(token).getBody();
         return (String) claims.get("username");
     }
 }
